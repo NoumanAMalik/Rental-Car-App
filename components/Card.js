@@ -19,10 +19,13 @@ export default function Card(props) {
 }
 
 const styles = StyleSheet.create({
-    card: {},
+    card: {
+        backgroundColor: "#ded",
+        margin: 10,
+        padding: 10,
+    },
     image: {
         width: 200,
         height: 200,
-        padding: 20,
     },
 });
