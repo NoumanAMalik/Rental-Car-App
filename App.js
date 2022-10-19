@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { useEffect, useState } from "react";
+import Card from "./components/Card";
 
 export default function App() {
     const [carData, setCarData] = useState([]);
@@ -17,33 +18,17 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <Image
-                style={styles.image}
-                source={{
-                    uri: "https://picsum.photos/200/",
-                }}
-            />
-            <Image
-                source={{
-                    uri: "https://reactnative.dev/img/tiny_logo.png/",
-                }}
-            />
-            <StatusBar style="auto" />
+            {carData &&
+                carData.length === 30 &&
+                carData.map((car) => {
+                    return <Card {...car} key={car.id} />;
+                })}
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "start",
-    },
-    image: {
-        width: 200,
-        height: 200,
-        padding: 20,
     },
 });
