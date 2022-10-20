@@ -7,13 +7,13 @@ export default function Card(props) {
             <Image
                 style={styles.image}
                 source={{
-                    uri: `https://picsum.photos/200/?random=${props.id}`,
+                    uri: `https://picsum.photos/300/?random=${props.id}`,
                 }}
             />
-            <Text>
+            <Text style={styles.text_name}>
                 {props.car_model_year} {props.car} {props.car_model}
             </Text>
-            <Text>{props.price}/day</Text>
+            <Text style={styles.text_price}>{props.price} / day</Text>
         </View>
     );
 }
@@ -21,11 +21,29 @@ export default function Card(props) {
 const styles = StyleSheet.create({
     card: {
         backgroundColor: "#ded",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowRadius: 15,
+        shadowColor: "rgba(0, 0, 0, 0.35)",
+        shadowOpacity: 1,
         margin: 10,
         padding: 10,
+        borderRadius: 5,
     },
     image: {
-        width: 200,
-        height: 200,
+        width: 300,
+        height: 300,
+        borderRadius: 5,
+    },
+    text_name: {
+        width: 300,
+        fontSize: 18,
+        marginTop: 10,
+    },
+    text_price: {
+        fontSize: 16,
+        marginVertical: 2,
     },
 });
