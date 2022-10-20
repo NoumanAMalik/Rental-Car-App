@@ -7,13 +7,14 @@ import {
     Text,
     View,
     ScrollView,
-    SafeAreaView,
+    useWindowDimensions,
 } from "react-native";
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
 
 export default function App() {
     const [carData, setCarData] = useState([]);
+    const window = useWindowDimensions();
 
     useEffect(() => {
         (async () => {
@@ -28,6 +29,9 @@ export default function App() {
             style={styles.scrollView}
             contentContainerStyle={styles.container}
         >
+            <View style={styles.search} width={window.width - 10}>
+                <Text>Search bar here</Text>
+            </View>
             {carData &&
                 carData.length === 30 &&
                 carData.map((car) => {
@@ -46,5 +50,18 @@ const styles = StyleSheet.create({
     scrollView: {
         alignSelf: "center",
         width: "100%",
+    },
+    search: {
+        height: 50,
+        margin: 5,
+        backgroundColor: "#ded",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowRadius: 15,
+        shadowColor: "rgba(0, 0, 0, 0.35)",
+        shadowOpacity: 1,
+        borderRadius: 5,
     },
 });
