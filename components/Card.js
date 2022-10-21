@@ -11,7 +11,13 @@ export default function Card(props) {
                 }}
             />
             <Text style={styles.text_name}>
-                {props.car_model_year} {props.car} {props.car_model}
+                {props.car_model_year +
+                    " " +
+                    props.car_color +
+                    " " +
+                    props.car +
+                    " " +
+                    props.car_model}
             </Text>
             <Text style={styles.text_price}>{props.price} / day</Text>
         </View>
